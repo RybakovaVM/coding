@@ -8,5 +8,11 @@ def find_product(products):
     for name, price, kol in products:
         if price < 80:
             print(name)
+            
+def calc():
+    for name, price, kol in products:
+        result = price * kol
+        print(f"{name} — всего на {result} рублей")
     
 find_product(products)
+calc()
