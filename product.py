@@ -27,8 +27,14 @@ def search():
            if (int(product[1]) * int(product[2])) == price[0]:
             name = product[0]
             if (int(product[1]) * int(product[2])) == price[0]:
-                print(f"Самая большая цена у товара {name} - {price[0]}")   
+                print(f"Самая большая цена у товара {name} - {price[0]}")
+
+def counting_price():
+    global price
+    total_prices = sum(price)
+    print(f"Общая цена товаров - {total_prices}")
 
 find_product(products)
 calc()
 search()
+counting_price()
