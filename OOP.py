@@ -1,3 +1,45 @@
+class BankAccount:
+    def __init__(self, account_number, balance=0):
+        self.__account_number = account_number  
+        self.__balance = balance                
+    
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print(f"Счёт пополнен на {amount}. Новый баланс: {self.__balance}")
+        else:
+            print("Ошибка: сумма для пополнения должна быть положительной.")
+    
+    def withdraw(self, amount):
+        if amount > 0:
+            if self.__balance >= amount:
+                self.__balance -= amount
+                print(f"Со счёта снято {amount}. Новый баланс: {self.__balance}")
+            else:
+                print("Ошибка: недостаточно средств на счёте.")
+        else:
+            print("Ошибка: сумма для снятия должна быть положительной.")
+    
+    def get_balance(self):
+        return self.__balance
+    
+    def get_account_number(self):
+        return self.__account_number
+
+account = BankAccount("123456789", 1000000000000)
+
+try:
+    print(account.__balance)
+except AttributeError as e:
+    print(f"Ошибка доступа к приватному полю: {e}")
+
+print("Номер счёта:", account.get_account_number())
+print("Текущий баланс:", account.get_balance())
+
+account.deposit(500)    
+account.withdraw(200)  
+account.withdraw(2000) 
+account.deposit(-100)
 class Book:
     def __init__(self, title, author, year):
         self.title = title
