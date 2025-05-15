@@ -1,3 +1,20 @@
+class Animal:
+    def make_sound(self):
+        print("Животное издаёт звук")
+
+class Dog(Animal):
+    def make_sound(self):
+        print("Гав-гав!")
+
+class Cat(Animal):
+    def make_sound(self):
+        print("Мяу-мяу!")
+
+animals = [Dog(), Cat(), Dog(), Animal(), Cat()]
+
+for animal in animals:
+    animal.make_sound()
+    
 class BankAccount:
     def __init__(self, account_number, balance=0):
         self.__account_number = account_number  
