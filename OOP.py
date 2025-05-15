@@ -1,3 +1,26 @@
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    
+    def area(self):
+        return self.width * self.height
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+    
+    def area(self):
+        return 3.14159 * self.radius ** 2 
+
+def print_area(shape):
+    print(f"Площадь фигуры: {shape.area():.2f}")
+
+rect = Rectangle(4, 5)
+circle = Circle(3)
+print_area(rect)   
+print_area(circle) 
+
 class Animal:
     def make_sound(self):
         print("Животное издаёт звук")
