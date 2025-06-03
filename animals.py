@@ -1,3 +1,6 @@
+class Shelter:
+    def __init__(self):
+        self.animals = []
 class Animal:
     def __init__(self, name, species, age):
         self.name = name
@@ -8,3 +11,5 @@ class Animal:
 if __name__ == "__main__":
     my_animal = Animal("Шарик", "собака", 1)
     my_animal.display_info()
+    shelter = Shelter()
+    print(shelter.animals)
