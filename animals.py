@@ -1,6 +1,8 @@
 class Shelter:
     def __init__(self):
         self.animals = []
+    def add_animal(self, animal):
+        self.animals.append(animal)
 class Animal:
     def __init__(self, name, species, age):
         self.name = name
@@ -13,3 +15,8 @@ if __name__ == "__main__":
     my_animal.display_info()
     shelter = Shelter()
     print(shelter.animals)
+    shelter.add_animal(my_animal)
+    
+print(f"В приюте сейчас {len(shelter.animals)} животных.")
+for animal in shelter.animals:
+    animal.display_info()
