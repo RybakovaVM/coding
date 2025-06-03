@@ -9,6 +9,14 @@ class Shelter:
         else:
             for animal in self.animals:
                 animal.display_info()
+    def find_by_species(self, species_name):
+        found = False
+        for animal in self.animals:
+            if animal.get_species() == species_name:
+                animal.display_info()
+                found = True
+        if not found:
+            print(f"Нет животных вида {species_name}")
 class Animal:
     def __init__(self, name, species, age):
         self.name = name
