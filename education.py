@@ -1,16 +1,22 @@
 class Student:
     def __init__(self, name, student_id):
-        self.name = name
-        self.student_id = student_id
-        self.grades = []
+        self.__name = name
+        self.__student_id = student_id
+        self.__grades = []
+    def get_name(self):
+        return self.__name
+    def get_id(self):
+        return self.__student_id
+    def get_grades(self):
+        return self.__grades
     def display_info(self):
-        print(f"Имя: {my_student.name}, ID: {my_student.student_id}")
+        print(f"Имя: {my_student.__name}, ID: {my_student.__student_id}")
     def add_grade(self, grade): 
-        self.grades.append(grade)
+        self.__grades.append(grade)
     def get_average(self):
-        if not self.grades:
+        if not self.__grades:
             return 0.0
-        return sum(self.grades) / len(self.grades) 
+        return sum(self.__grades) / len(self.__grades) 
     
 my_student = Student("Галя", "123")
 my_student.display_info()
