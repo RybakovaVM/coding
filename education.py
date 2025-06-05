@@ -13,7 +13,12 @@ class Group:
         self.students = []
     def add_student(self, student):
         self.students.append(student)
-        
+    def show_students(self):
+        if not self.students:
+            print("Группа пуста.")
+        else:
+            for student in self.students:
+                student.display_info()
 group = Group()
 print(group.students)
 group.add_student(my_student)  
