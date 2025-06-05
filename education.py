@@ -11,5 +11,11 @@ my_student.display_info()
 class Group:
     def __init__(self):
         self.students = []
+    def add_student(self, student):
+        self.students.append(student)
+        
 group = Group()
 print(group.students)
+group.add_student(my_student)  
+for student in group.students:
+    my_student.display_info()
