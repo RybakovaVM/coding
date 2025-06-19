@@ -38,3 +38,29 @@ my_library.add_book(book2)
 my_library.show_all_books()
 my_library.remove_book("Война и мир")
 my_library.show_all_books()
+
+while True:
+    print("\nДоступные действия:")
+    print("1 - Добавить книгу")
+    print("2 - Удалить книгу")
+    print("3 - Показать все книги")
+    print("4 - Выйти")
+    
+    choice = input("Выберите действие (1-4): ")
+    
+    if choice == '1':
+        name = input("Введите название книги: ")
+        author = input("Введите автора книги: ")
+        year = input("Введите год издания книги: ")
+        new_book = Book(name, author, year)
+        my_library.add_book(new_book)
+    elif choice == '2':
+        book_name = input("Введите название книги для удаления: ")
+        my_library.remove_book(book_name)
+    elif choice == '3':
+        my_library.show_all_books()
+    elif choice == '4':
+        print("Выход из программы")
+        break
+    else:
+        print("Неверный ввод, пожалуйста, выберите 1-4")
