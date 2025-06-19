@@ -14,6 +14,7 @@ class Library:
   def add_book(self, book):
     self.books.append(book)
     print(f"Книга '{book.name}' добавлена в библиотеку")
+    self.save()
 
   def remove_book(self, book_name):
     for book in self.books:
@@ -30,6 +31,7 @@ class Library:
     print("Список книг в библиотеке")
     for book in self.books:
       book.get_info()
+    
 my_library = Library()
 book1 = Book("Война и мир", "Лев Толстой", 1869)
 book2 = Book("Преступление и наказание", "Фёдор Достоевский", 1866)
