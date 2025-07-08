@@ -1,8 +1,12 @@
-class matem:
+import unittest
+
+class Matem:
     @staticmethod
     def factor(n):
         if n < 0:
             return None
+        if n == 0:
+            return 1
         result = 1 
         for i in range(1, n + 1):
             result *= i 
@@ -14,13 +18,23 @@ class matem:
     
     @staticmethod        
     def sum_of_squares(n):
-            return sum(i ** 2 for i in range(1, n + 1))
+        if n < 1:
+            return 0
+        return sum(i ** 2 for i in range(1, n + 1))
             
+class TestMatem(unittest.TestCase):
+    def test_factor(self):
+        self.assertEqual(Matem.factor(5), 120)
+        self.assertEqual(Matem.factor(0), 1)
+        self.assertIsNone(Matem.factor(-3))
+        
+    def test_power(self):
+        self.assertEqual(Matem.power(2, 3), 8) 
+        self.assertEqual(Matem.power(5, 0), 1)
+        
+    def test_sum_of_squares(self):
+        self.assertEqual(Matem.sum_of_squares(4), 30) 
+        self.assertEqual(Matem.sum_of_squares(0), 0)
+        
 if __name__ == "__main__":
-    num = 5
-    print(f"факториал числа {num} равен {matem.factor(num)}")
-    a = 2
-    b = 3
-    print(f"{a} в степени {b} равен {matem.power(a, b)}")
-    n = 4
-    print(f"сумма квадратов числа от 1 до {n} равна {matem.sum_of_squares(n)}")
+    unittest.main() 
