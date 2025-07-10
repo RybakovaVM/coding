@@ -1,7 +1,20 @@
-import time 
-words = ["телефон", "компьютер", "собака", "сумка", "духи", "косметика", "крабик", "чехол", "резинка", "кот"]
-x = 0
-while x < 10:
-    x += 1
-    time.sleep(1)
-    print(words[x])
+import asyncio
+
+async def random(word, delay):
+    await asyncio.sleep(delay)
+    print(word)
+    
+async def main():
+    await asyncio.gather(
+    random("телефон", 1),
+    random("компьютер", 2),
+    random("собака", 3),
+    random("сумка", 1),
+    random("духи", 3),
+    random("косметика", 2), 
+    random("крабик", 1),
+    random("чехол", 3),
+    random("резинка", 2),
+    random("кот", 1))
+    
+asyncio.run(main())
