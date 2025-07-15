@@ -15,11 +15,11 @@ class Computer:
 
     def send(self, dst, data):
         packet = Packet(self.name, dst, data)
-        print(f"{self.name}: Отправка пакета в {dst}")
+        print(f"{self.name}: Отправка в {dst} - '{data}'")
         self.router.route(packet)
 
     def receive(self, packet):
-        print(f"{self.name}: Принятый пакет - {packet.data}")
+        print(f"{self.name}: Получено из {packet.src} - '{packet.data}'")
         
 class Router:
     def __init__(self):
@@ -27,6 +27,7 @@ class Router:
         
     def connect(self, device):
         self.devices[device.name] = device
+        print(f"Router: {device.name} связанный")
     
     def route(self, packet):
         if packet.dst in self.devices:
@@ -37,6 +38,8 @@ class Router:
 router = Router()
 pc1 = Computer("PC1", router)
 pc2 = Computer("PC2", router)
+pc3 = Computer("PC3", router)
+pc4 = Computer("PC4", router)
 pc1.send("PC2", "Hello, World!")
 pc2.send("PC3", "This will fail!")
-  
+pc2.send("PC5", "This should fail")
